@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Shopping Store</title>
+</head>
+<body>
+    <header>
+        <h1>Shopping Store</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/product/Product-1">Product 1</a></li>
+                <li><a href="/product/Product-2">Product 2</a></li>
+                <li><a href="/product/Product-3">Product 3</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Your product listing goes here -->
+        {% for product in products %}
+        <div class="product">
+            <h2>{{ product.name }}</h2>
+            <p>Price: ${{ product.price }}</p>
+            <a href="/product/{{ product.name }}">Details</a>
+        </div>
+        {% endfor %}
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Your Shopping Store</p>
+    </footer>
+</body>
+</html>
+#products html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>{{ product.name }} - Shopping Store</title>
+</head>
+<body>
+    <header>
+        <h1>Shopping Store</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/product/Product-1">Product 1</a></li>
+                <li><a href="/product/Product-2">Product 2</a></li>
+                <li><a href="/product/Product-3">Product 3</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="product">
+            <h2>{{ product.name }}</h2>
+            <p>Description: {{ product.description }}</p>
+            <p>Price: ${{ product.price }}</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Your Shopping Store</p>
+    </footer>
+</body>
+</html>
+#css file
+/* Header styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Additional styles for product listings */
+.product {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px;
+    background-color: #f9f9f9;
+}
+
+.product h2 {
+    margin: 0;
+}
